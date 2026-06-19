@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mookhanybing.github.io/home-app-aiyouxi-com-cn/sitemap.xml
