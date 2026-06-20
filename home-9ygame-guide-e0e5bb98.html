@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游 · 轻航指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f6;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: #222;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    .page {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 28px 0 60px;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 28px;
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid #e6e9f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      margin-bottom: 48px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 560;
+      font-size: 1.2rem;
+      letter-spacing: 0.3px;
+      color: #1e293b;
+    }
+
+    .logo-icon {
+      background: #1e293b;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3b4a5e;
+      transition: color 0.2s;
+      font-weight: 470;
+    }
+
+    .nav-links a:hover {
+      color: #0b1c2e;
+    }
+
+    .nav-highlight {
+      background: #eef2f7;
+      padding: 6px 16px;
+      border-radius: 30px;
+      border: 1px solid #dbe0e8;
+    }
+
+    /* hero 区域 */
+    .hero {
+      text-align: center;
+      padding: 32px 16px 40px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 520;
+      letter-spacing: -0.3px;
+      color: #121926;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #3c4a5d;
+      font-size: 1.06rem;
+      background: #f0f2f6;
+      padding: 10px 22px;
+      border-radius: 40px;
+      border: 1px solid #e2e7ef;
+      display: inline-block;
+    }
+
+    /* 分区卡片 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e3e8f0;
+      border-radius: 24px;
+      padding: 32px 34px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: #1c2a3e;
+      border-left: 4px solid #9aabbf;
+      padding-left: 16px;
+    }
+
+    .card-content {
+      color: #334155;
+      font-size: 0.98rem;
+    }
+
+    .card-content p {
+      margin-bottom: 12px;
+    }
+
+    .card-content ul {
+      margin: 8px 0 12px 20px;
+    }
+
+    .card-content li {
+      margin-bottom: 8px;
+    }
+
+    /* 三个场景模块 */
+    .scene-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    .scene-item {
+      background: #fbfdff;
+      border: 1px solid #e0e5ee;
+      border-radius: 20px;
+      padding: 24px 20px 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+    }
+
+    .scene-item h3 {
+      font-size: 1.1rem;
+      font-weight: 520;
+      margin-bottom: 12px;
+      color: #1b283a;
+    }
+
+    .scene-item p {
+      font-size: 0.92rem;
+      color: #3f4f64;
+    }
+
+    .scene-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      display: inline-block;
+      background: #eef2f9;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 14px;
+      border: 1px solid #dce2ed;
+    }
+
+    /* 常见说明（FAQ 摘要） */
+    .faq-compact {
+      margin-top: 12px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e8edf5;
+      padding: 16px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #1e2b3f;
+    }
+
+    .faq-a {
+      color: #44566c;
+      font-size: 0.93rem;
+    }
+
+    .footer-note {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #68788b;
+      border-top: 1px solid #dce2ec;
+      padding-top: 28px;
+    }
+
+    .footer-note a {
+      color: #1e293b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #bcc9db;
+      font-weight: 470;
+    }
+
+    a {
+      color: #1e293b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 820px) {
+      .scene-row {
+        grid-template-columns: 1fr;
+      }
+
+      .top-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        padding: 14px 20px;
+      }
+
+      .nav-links {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .card {
+        padding: 24px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero p {
+        font-size: 0.95rem;
+        padding: 8px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- 导航 -->
+  <nav class="top-nav">
+    <div class="logo-area">
+      <span class="logo-icon">9</span>
+      <span>九游</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">指南</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+      <span class="nav-highlight"><a href="https://home-9ygame.com">九游</a></span>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>再次遇见 · 熟悉的坐标</h1>
+    <p>收藏、回访、持续关注 —— 以轻量视角重新打开九游</p>
+  </div>
+
+  <!-- 核心介绍 卡片 -->
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">回访者的阅读框架</div>
+      <div class="card-content">
+        <p>无论隔了多久再次打开 <a href="https://home-9ygame.com">九游</a>，你会发现内容结构依然清晰。平台围绕游戏信息、社区观点和版本动态搭建，适合定期回来翻阅。对很多用户来说，它已经成为一个习惯性收藏的站点，不必每次重新搜索，直接导航即可。</p>
+        <p>从信息组织方式来看，首页保持了一致的分区逻辑：推荐区、分类入口和热门更新。这种稳定性降低了再认成本，也间接鼓励了持续关注。</p>
+      </div>
+    </div>
+
+    <!-- 三个场景模块 使用卡片内嵌网格 -->
+    <div class="card" style="padding-bottom: 28px;">
+      <div class="card-title">三个常见使用场景</div>
+      <div class="scene-row">
+        <div class="scene-item">
+          <div class="scene-icon">📌</div>
+          <h3>收藏后回访</h3>
+          <p>将页面加入浏览器书签或收藏夹，每次想浏览游戏动态时直接打开，无需重复搜索。</p>
+        </div>
+        <div class="scene-item">
+          <div class="scene-icon">🔄</div>
+          <h3>周期性关注</h3>
+          <p>适合每隔几天或每周回来看看更新内容，了解新游资讯、版本变动或社区讨论。</p>
+        </div>
+        <div class="scene-item">
+          <div class="scene-icon">🧭</div>
+          <h3>导航式浏览</h3>
+          <p>利用顶部栏目和分类入口，从感兴趣的游戏类型切入，逐步发现更多内容。</p>
+        </div>
+      </div>
+      <div style="margin-top: 8px; color: #54657b; font-size: 0.92rem; border-top: 1px solid #edf1f8; padding-top: 18px;">
+        <p>以上场景都基于同一个前提：将 <a href="https://home-9ygame.com">九游</a> 视为一个可以反复使用的信息起点，而非一次性入口。</p>
+      </div>
+    </div>
+
+    <!-- 常见说明 -->
+    <div class="card">
+      <div class="card-title">常见说明摘要</div>
+      <div class="faq-compact">
+        <div class="faq-item">
+          <div class="faq-q">Q：为什么我上次看到的页面和现在不一样？</div>
+          <div class="faq-a">首页推荐区会随更新轮换，但主要分类和导航结构基本固定，可通过顶部菜单回到熟悉位置。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q：需要注册或登录才能浏览全部内容吗？</div>
+          <div class="faq-a">大部分信息（游戏介绍、资讯、分类浏览）可以直接阅读，部分互动功能可能需要账号。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q：如何更高效地利用这个站点？</div>
+          <div class="faq-a">建议直接收藏 <a href="https://home-9ygame.com">九游</a> 首页，并关注你常玩的游戏分类标签，减少每次查找的步骤。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 结尾 -->
+  <div class="footer-note">
+    <p>以轻量导航页作为回访锚点 · 内容基于公开信息整理</p>
+    <p style="margin-top: 6px;"><a href="https://home-9ygame.com">九游</a> — 保持关注，随时回来</p>
+  </div>
+</div>
+</body>
+</html>
