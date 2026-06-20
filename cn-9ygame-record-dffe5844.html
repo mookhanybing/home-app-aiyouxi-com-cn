@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游 · 游戏资料索引页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* 标题层级清晰 */
+    .title-primary {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+      color: #0f172a;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #64748b;
+      border-left: 4px solid #b3cde0;
+      padding-left: 1rem;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #94a3b8;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 2rem 0 0.8rem 0;
+      color: #1e293b;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin: 1.5rem 0 0.5rem 0;
+      color: #334155;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #334155;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid #b4c9f0;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      color: #1d4ed8;
+      border-bottom-color: #1d4ed8;
+    }
+
+    .summary-box {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eef2f6;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    .grid-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 1.2rem 0 1.8rem 0;
+    }
+
+    .highlight-item {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.4rem 1.4rem 1.6rem 1.4rem;
+      border: 1px solid #eef2f6;
+      transition: box-shadow 0.2s;
+    }
+
+    .highlight-item:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .highlight-item em {
+      display: block;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #0f172a;
+      margin-bottom: 0.45rem;
+    }
+
+    .highlight-item span {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .usage-scenario {
+      background: #f1f5f9;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      margin: 1rem 0 1.8rem 0;
+    }
+
+    .usage-scenario p {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-mini {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      margin: 1rem 0 0.2rem 0;
+      color: #0f172a;
+    }
+
+    .faq-a {
+      color: #475569;
+      margin-left: 0rem;
+      font-size: 0.95rem;
+    }
+
+    .disclaimer-note {
+      background: #fafafa;
+      border-left: 5px solid #cbd5e1;
+      padding: 1rem 1.5rem;
+      border-radius: 0 12px 12px 0;
+      margin: 2rem 0 0.5rem 0;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .disclaimer-note strong {
+      font-weight: 500;
+      color: #1e293b;
+    }
+
+    .footer-meta {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.5rem;
+      text-align: left;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .title-primary {
+        font-size: 1.8rem;
+      }
+      .summary-box {
+        padding: 1.2rem 1.2rem;
+      }
+      .grid-highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="title-primary">九游 · 资料索引</div>
+    <div class="subhead">基于公开信息整理 · 游戏内容检索参考</div>
+  </header>
+
+  <!-- 摘要 -->
+  <div class="section-label">摘要</div>
+  <p>本页提供与 <a href="https://cn-9ygame.com">九游</a> 相关的产品信息结构化整理。涵盖平台定位、功能亮点、适用场景及常见问题摘要，内容源自公开资料与用户反馈的聚合，便于快速了解服务轮廓。</p>
+
+  <!-- 核心介绍 / 定位 -->
+  <h2>产品定位与信息结构</h2>
+  <p><a href="https://cn-9ygame.com">九游</a> 是一个面向中文用户的游戏内容与社区聚合站点，主要提供游戏资讯、攻略索引、玩家讨论以及部分游戏辅助信息。平台以资料整理和社区互动为核心，覆盖多种游戏类型，强调信息获取效率与用户自主筛选。以下从几个维度展开其功能特征。</p>
+
+  <!-- 亮点卡片 -->
+  <h2>功能亮点</h2>
+  <div class="grid-highlights">
+    <div class="highlight-item">
+      <em>游戏库索引</em>
+      <span>收录多品类游戏的基本信息、版本动态及常见问题链接，方便快速查阅。</span>
+    </div>
+    <div class="highlight-item">
+      <em>攻略与资料归档</em>
+      <span>用户可找到由爱好者或编辑整理的流程攻略、角色数据、物品列表等参考内容。</span>
+    </div>
+    <div class="highlight-item">
+      <em>社区讨论聚合</em>
+      <span>提供板块式讨论区，主题包括新游讨论、机制解析、版本更新交流等。</span>
+    </div>
+    <div class="highlight-item">
+      <em>检索辅助</em>
+      <span>站内搜索配合标签分类，减少信息噪音，提升定位具体内容的效率。</span>
+    </div>
+  </div>
+
+  <!-- 使用建议 / 场景 -->
+  <h2>常见使用场景</h2>
+  <div class="usage-scenario">
+    <p><strong>场景一 · 快速查阅游戏基础信息</strong><br>
+    当需要确认某款游戏的发行时间、平台、简要背景时，可通过 <a href="https://cn-9ygame.com">九游</a> 的条目页面获取概览，减少在多个网站间切换的时间。</p>
+    <p><strong>场景二 · 寻找特定攻略或机制说明</strong><br>
+    针对关卡难点、角色养成、隐藏要素等，平台内常收录不同版本的攻略帖，适合横向比较不同思路。</p>
+    <p><strong>场景三 · 跟进版本动态与玩家讨论</strong><br>
+    游戏更新公告、活动预告、补丁说明等常被整理在相应板块，可配合社区评论了解其他玩家的实际体验。</p>
+  </div>
+
+  <!-- 提示与注意事项 -->
+  <h3>使用提示</h3>
+  <p>平台内容主要由用户与编辑共同贡献，信息时效性和准确性可能随版本更新而变化。建议将本站内容作为查找线索的起点，并结合游戏内说明、官方公告或其他权威渠道进行交叉验证。部分页面可能包含外部链接或用户生成内容，浏览时保持基本的批判性判断即可。</p>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h2 style="border-bottom: none; margin-top: 0;">FAQ 摘要</h2>
+    <div class="faq-q">Q: 如何找到某款特定游戏的攻略索引？</div>
+    <div class="faq-a">可使用站内搜索框输入游戏名称，或浏览分类标签下的归档。若未找到直接结果，可尝试论坛搜索关键词。</div>
+
+    <div class="faq-q">Q: 平台是否支持用户发布内容？</div>
+    <div class="faq-a">是的，注册用户可以在对应板块发帖或回复，具体规则见站内说明。发布前建议阅读相应版块指引。</div>
+
+    <div class="faq-q">Q: 信息更新频率如何？</div>
+    <div class="faq-a">热门游戏的内容更新相对及时，长尾游戏可能会有滞后。部分资料页会注明最近更新时间，可作参考。</div>
+  </div>
+
+  <!-- 克制的说明 -->
+  <div class="disclaimer-note">
+    <strong>资料说明：</strong> 本页为独立整理的内容索引，所描述的功能与信息均基于公开可查的资料。平台运营方可能会调整服务内容，请以实际页面为准。不构成任何形式的推荐或承诺，使用者请自行判断。
+  </div>
+
+  <div class="footer-meta">
+    — 信息整理页 · 不隶属于九游官方 · 内容仅供参考
+  </div>
+</div>
+</body>
+</html>
