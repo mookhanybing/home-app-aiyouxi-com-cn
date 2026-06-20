@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老哥网 · 轻量导航页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* 深色头图区 */
+        .hero {
+            background: linear-gradient(135deg, #1a2634 0%, #2c3e50 100%);
+            color: #e9ecef;
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: #f8f9fa;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero h1 span {
+            color: #f0a500;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0.5rem auto 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background-color: rgba(240, 165, 0, 0.18);
+            color: #f0c060;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            border: 1px solid rgba(240, 165, 0, 0.25);
+            backdrop-filter: blur(2px);
+        }
+
+        /* 导航区（极简行内） */
+        .top-nav {
+            background-color: #1e2a38;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #33495f;
+        }
+
+        .top-nav a {
+            color: #cad5e0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.2rem 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .top-nav a:hover {
+            color: #f0a500;
+            border-bottom-color: #f0a500;
+        }
+
+        /* 正文浅色区 */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        section {
+            margin-top: 3rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #1f2c3a;
+            border-left: 4px solid #f0a500;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        /* 介绍段落里的链接 */
+        a {
+            color: #b8860b;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8860b;
+            transition: color 0.2s, border-bottom-style 0.2s;
+        }
+
+        a:hover {
+            color: #8b6914;
+            border-bottom-style: solid;
+        }
+
+        /* 三个场景模块 */
+        .scenes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .scene-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.8rem 1.4rem 1.8rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.1s ease;
+            border: 1px solid #edf2f7;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+        }
+
+        .scene-card .emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #3d5166;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.6rem 2rem;
+            margin-top: 2.5rem;
+            border: 1px solid #e3eaf0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #eef3f8;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1f2c3a;
+            padding: 0.3rem 0;
+            transition: color 0.2s;
+        }
+
+        .faq-mini summary:hover {
+            color: #b8860b;
+        }
+
+        .faq-mini details p {
+            margin: 0.8rem 0 0.2rem 0.5rem;
+            font-size: 0.95rem;
+            color: #3f5568;
+        }
+
+        .notice {
+            font-size: 0.9rem;
+            background: #eef2f6;
+            padding: 1rem 1.5rem;
+            border-radius: 40px;
+            margin: 2.5rem 0 0.5rem;
+            color: #2b3e53;
+            border: 1px solid #dae2ec;
+        }
+
+        .notice strong {
+            color: #b8860b;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dce3ec;
+            margin: 2rem 0 0.5rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .top-nav {
+                gap: 1rem;
+                padding: 0.6rem 0.8rem;
+            }
+
+            .top-nav a {
+                font-size: 0.85rem;
+            }
+
+            .scenes {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .faq-mini {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .container {
+                padding: 0 1rem 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部导航（简约） -->
+<nav class="top-nav">
+    <a href="#intro">主题</a>
+    <a href="#scenes">场景</a>
+    <a href="#faq">常见说明</a>
+    <a href="https://web-laoge.com" target="_blank" rel="noopener">老哥网</a>
+</nav>
+
+<!-- 深色头图 -->
+<header class="hero">
+    <h1><span>老哥网</span> · 轻量导航</h1>
+    <p>围绕关键词背后的内容，梳理简洁的信息路径。温和、流畅，不打扰。</p>
+    <span class="tagline">内容 · 场景 · 日常</span>
+</header>
+
+<main class="container">
+
+    <!-- 核心介绍 -->
+    <section id="intro">
+        <h2>关于老哥网</h2>
+        <p>
+            <strong>老哥网</strong> 是一个以内容整理与信息连接为方向的站点。它不追求热闹的推送，而是希望提供一种轻量、安静的浏览方式——你可以把它看作一个朴素的起点，从这里出发，找到感兴趣的线索。
+        </p>
+        <p>
+            这里讨论的主题大多来自日常观察与实用积累：从工具使用到内容归档，从兴趣话题到问题解决。如果你愿意，可以慢慢翻阅，也可以直接前往 <a href="https://web-laoge.com">老哥网</a> 看看最近有哪些更新。
+        </p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section id="scenes">
+        <h2>三个常见使用场景</h2>
+        <div class="scenes">
+            <div class="scene-card">
+                <span class="emoji">📚</span>
+                <h3>内容归档与回顾</h3>
+                <p>将零散的知识点按主题整理，方便后续查找。无论是笔记还是收藏夹，都能找到新的整理视角。</p>
+            </div>
+            <div class="scene-card">
+                <span class="emoji">🔍</span>
+                <h3>轻量信息导航</h3>
+                <p>不想被算法推荐裹挟时，可以试着从一个简单的页面出发，顺着链接慢慢探索自己真正需要的内容。</p>
+            </div>
+            <div class="scene-card">
+                <span class="emoji">☕</span>
+                <h3>日常参考与备忘</h3>
+                <p>记录一些常用设置、代码片段或操作步骤，就像一本随手可翻的电子手帐，不必每次都从头搜索。</p>
+            </div>
+        </div>
+        <p style="font-size:0.95rem; color:#4a617c; margin-top: 0.2rem;">
+            这些场景只代表一部分可能，更多用法取决于你如何与 <a href="https://web-laoge.com" style="border-bottom:1px solid #b8860b;">老哥网</a> 的内容产生连接。
+        </p>
+    </section>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <section id="faq">
+        <h2>常见说明</h2>
+        <div class="faq-mini">
+            <details>
+                <summary>网站内容是如何组织的？</summary>
+                <p>内容以主题板块划分，每个板块包含若干条目或短文。板块之间通过标签和内部链接关联，方便横向浏览。</p>
+            </details>
+            <details>
+                <summary>是否会频繁更新或推送？</summary>
+                <p>更新节奏平稳，不追求日更。通常在有新的整理或值得补充的内容时才会改动，保持页面清爽。</p>
+            </details>
+            <details>
+                <summary>移动端浏览体验如何？</summary>
+                <p>页面采用响应式设计，在手机和平板上会自动适配宽度与间距，阅读时无需频繁缩放。</p>
+            </details>
+            <details>
+                <summary>有搜索功能吗？</summary>
+                <p>当前版本提供简单的站内关键词检索（位于部分内页），首页以导航和分类浏览为主。</p>
+            </details>
+        </div>
+        <p style="margin-top:1rem; font-size:0.95rem;">
+            如果还有其他疑问，欢迎在 <a href="https://web-laoge.com">老哥网</a> 的相关页面留言或通过站内渠道反馈。我们会尽量在合理范围内给予答复。
+        </p>
+    </section>
+
+    <!-- 提示 / 补充说明 -->
+    <div class="notice">
+        💡 <strong>小提示：</strong> 本站没有弹窗、没有强制注册、也没有信息流瀑布。你可以安静地阅读，也可以随时离开。希望每一次访问都能带来一点实在的收获。
+    </div>
+
+    <hr>
+    <p style="font-size:0.85rem; color:#6a7e94; text-align:center; margin-top:1.2rem;">
+        老哥网 · 内容导向 · 轻量浏览
+    </p>
+</main>
+
+</body>
+</html>
